@@ -102,6 +102,8 @@ struct SensorSettings
 	uint8_t tempOverSample;
 	uint8_t pressOverSample;
 	uint8_t humidOverSample;
+	
+	float barometer; // mb based on location
 
 };
 
