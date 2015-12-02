@@ -90,6 +90,9 @@ void setup()
 	//  1 through 5, oversampling *1, *2, *4, *8, *16 respectively
 	mySensor.settings.humidOverSample = 1;
 	
+	// Local Barometer Reading in mb. If not provided uses average sea level value.
+  	mySensor.settings.barometer = 1013.25; //mb
+	
 	Serial.begin(57600);
 	Serial.print("Program Started\n");
 	Serial.print("Starting BME280... result of .begin(): 0x");
