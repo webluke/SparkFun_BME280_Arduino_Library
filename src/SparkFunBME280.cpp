@@ -48,7 +48,7 @@ BME280::BME280( void )
 	settings.tempOverSample = 0;
 	settings.pressOverSample = 0;
 	settings.humidOverSample = 0;
-
+	settings.barometer = 1013.25; // sea level
 }
 
 
@@ -188,7 +188,9 @@ float BME280::readFloatAltitudeMeters( void )
 {
 	float heightOutput = 0;
 	
-	heightOutput = ((float)-45846.2)*(pow(((float)readFloatPressure()/(float)101325), 0.190263) - (float)1);
+	//heightOutput = ((float)-45846.2)*(pow(((float)readFloatPressure()/(float)101325), 0.190263) - (float)1);
+	heightOutput = ((float)-45846.2)*(pow(((float)readFloatPressure()/(settings.barometer*(float)100)), 0.190263) - (float)1);
+	
 	return heightOutput;
 	
 }
